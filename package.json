@@ -4,12 +4,12 @@
   "description": "api for mongo ",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "node index.js"
   },
   "author": "Fadhil",
   "license": "ISC",
   "dependencies": {
-    "mongoose": "^5.11.8",
-    "nodemon": "^2.0.6"
+    "bcrypt": "^5.0.0",
+    "mongoose": "^5.11.8"
   }
 }
