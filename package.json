@@ -4,12 +4,11 @@
   "description": "api for mongo ",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon server.js"
   },
   "author": "Fadhil",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1",
     "mongoose": "^5.11.8",
     "nodemon": "^2.0.6"
   }
