@@ -37,7 +37,7 @@ module.exports = {
                 if(err){
                     console.log(`[ERROR] ${err}`);
                 }else{
-                    resolve(data)
+                    resolve(data); //giveing data return
                 }
             })
         })
@@ -51,7 +51,45 @@ module.exports = {
                 if(err){
                     console.log(`[ERROR] ${err}`);
                 }else{
-                    resolve()
+                    resolve();
+                }
+            })
+        })
+    },
+
+    deleteMany:(databaseModel, object)=>{
+        return new Promise((resolve, reject)=>{
+            databaseModel.deleteMany(object, (err)=>{
+                if(err){
+                    console.log(`[ERROR] ${err}`);
+                }else{
+                    resolve();
+                }
+            })
+        })
+    },
+
+    // update
+
+    updateMany:(databaseModel, findObject, updateObject)=>{
+        return new Promise((resolve, reject)=>{
+            databaseModel.updateMany(findObject, updateObject, (err, data)=>{
+                if(err){
+                    console.log(`[ERROR] ${err}`);
+                }else{
+                    resolve();
+                }
+            })
+        })
+    },
+
+    updateOne:(databaseModel, findObject, updateObject)=>{
+        return new Promise((resolve, reject)=>{
+            databaseModel.updateOne(findObject, updateObject, (err, data)=>{
+                if(err){
+                    console.log(`[ERROR] ${err}`);
+                }else{
+                    resolve();
                 }
             })
         })

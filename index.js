@@ -25,7 +25,7 @@ function crud(option, data){
 
         // save database 
 
-        if(option == "s"){
+        if(option == "s"){ // save data
             crudDatabase.saveData(databaseModel, data).then(()=>{
                 resolve()
             })
@@ -33,13 +33,13 @@ function crud(option, data){
 
         // read data
 
-        if(option == "r"){
+        if(option == "r"){ // read all data
             crudDatabase.readAllData(databaseModel).then((data)=>{
                 resolve(data);
             })
         }
 
-        if(option == "ro"){
+        if(option == "ro"){ // read one data
             crudDatabase.readOne(databaseModel, data).then((data)=>{
                 resolve(data);
             })
@@ -47,15 +47,49 @@ function crud(option, data){
 
         // delete
 
-        if(option == "d"){
+        if(option == "d"){ // delete all data
             crudDatabase.readAllData(databaseModel).then((data)=>{
                 data.forEach(item => {
                     let deleteObject = {_id:item._id}
                     crudDatabase.deleteOne(databaseModel   ,deleteObject)
                 });
+                resolve();
+            })
+        }
+
+        if(option == "do"){ // delete one data
+            crudDatabase.deleteOne(databaseModel, data).then(()=>{
+                resolve();
+            })
+        }
+
+        if(option == "dm"){ // delete many data
+            crudDatabase.deleteMany(databaseModel, data).then(()=>{
+                resolve();
+            })
+        }
+
+        // update
+
+        if(option == "u"){ // update many
+            crudDatabase.updateMany(databaseModel ,data[0], data[1]).then(()=>{
                 resolve()
             })
         }
+
+        if(option == "uo"){ // update one
+            crudDatabase.updateOne(databaseModel ,data[0], data[1]).then(()=>{
+                resolve()
+            })
+        }
+
+        // else
+
+        else{
+            console.log(`[ERROR] ${option} No Such Option`)
+            console.log(`get the documentation https://github.com/fadhilsaheer/mongoi/#readme`)
+        }
+
 
     })
 }
