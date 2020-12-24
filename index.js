@@ -51,7 +51,7 @@ function crud(option, data){
             crudDatabase.readAllData(databaseModel).then((data)=>{
                 data.forEach(item => {
                     let deleteObject = {_id:item._id}
-                    crudDatabase.deleteOne(databaseModel   ,deleteObject)
+                    crudDatabase.deleteOne(databaseModel, deleteObject)
                 });
                 resolve();
             })
