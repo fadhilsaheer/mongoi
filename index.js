@@ -1,6 +1,7 @@
 
 
-const coreDatabase = require('./core/core-db');
+const coreDatabase = require('./core/core-db'); // contains database core
+const crudDatabase = require('./core/crud-db'); // contains crud operations
 
 // This function will connect to database and create a db schema
 
@@ -19,18 +20,54 @@ function init(connectionUrl, databaseSchema, collectionName){
     })
 }
 
-
-
-
-function saveData(data){
+function crud(option, data){
     return new Promise((resolve, reject)=>{
-        coreDatabase.savData(databaseModel, data)
-        resolve()
+
+        // save database 
+
+        if(option == "s"){
+            crudDatabase.saveData(databaseModel, data).then(()=>{
+                resolve()
+            })
+        }
+
+        // read data
+
+        if(option == "r"){
+            crudDatabase.readAllData(databaseModel).then((data)=>{
+                resolve(data);
+            })
+        }
+
+        if(option == "ro"){
+            crudDatabase.readOne(databaseModel, data).then((data)=>{
+                resolve(data);
+            })
+        }
+
+        // delete
+
+        if(option == "d"){
+            crudDatabase.readAllData(databaseModel).then((data)=>{
+                data.forEach(item => {
+                    let deleteObject = {_id:item._id}
+                    crudDatabase.deleteOne(databaseModel   ,deleteObject)
+                });
+                resolve()
+            })
+        }
+
     })
 }
 
-
 module.exports = {
-    init, 
-    saveData
+    init,
+    // saveData:(data)=>{
+    //     return new Promise((resolve, reject)=>{
+    //         crudDatabase.saveData(databaseModel, data).then(()=>{
+    //             resolve();
+    //         })
+    //     })
+    // }
+    crud
 }

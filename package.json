@@ -3,13 +3,22 @@
   "version": "1.0.0",
   "description": "api for mongo ",
   "main": "index.js",
+  "bin": "index.js",
   "scripts": {
     "start": "node index.js"
   },
-  "author": "Fadhil",
-  "license": "ISC",
+  "author": "Fadhil Saheer",
+  "license": "MIT",
   "dependencies": {
     "bcrypt": "^5.0.0",
     "mongoose": "^5.11.8"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fadhilsaheer/mongoi.git"
+  },
+  "bugs": {
+    "url": "https://github.com/fadhilsaheer/mongoi/issues"
+  },
+  "homepage": "https://github.com/fadhilsaheer/mongoi/#readme"
 }
