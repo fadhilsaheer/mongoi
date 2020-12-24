@@ -4,18 +4,33 @@ const coreDatabase = require('./core/core-db');
 
 // This function will connect to database and create a db schema
 
+let databaseModel;
+
 function init(connectionUrl, databaseSchema, collectionName){
-    coreDatabase.connectDatabase(connectionUrl);
-    coreDatabase.getDatabaseSchema(databaseSchema).then((schema)=>{
-        console.log("hello world")
-        coreDatabase.createDatabaseModel(schema, collectionName).then((model)=>{
-            console.log(model)
+    return new Promise((resolve, reject)=>{
+        coreDatabase.connectDatabase(connectionUrl).then(()=>{
+            coreDatabase.getDatabaseSchema(databaseSchema).then((schema)=>{
+                coreDatabase.createDatabaseModel(schema, collectionName).then((model)=>{
+                    databaseModel = model;
+                    resolve()
+                })
+            })
         })
     })
 }
 
-let schem = {
-    first_name: String,
-    last_name: String
+
+
+
+function saveData(data){
+    return new Promise((resolve, reject)=>{
+        coreDatabase.savData(databaseModel, data)
+        resolve()
+    })
 }
-init("mongodb://localhost:27017/mongoi", schem, "users")
+
+
+module.exports = {
+    init, 
+    saveData
+}

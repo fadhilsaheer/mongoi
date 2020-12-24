@@ -34,5 +34,17 @@ module.exports = {
             const databaseModel = await new mongoose.model(collectionName, databaseSchema);
             resolve(databaseModel);
         });
+    },
+
+    // For a bug test 
+
+    // model is database-model and data is the data it should be an object
+    savData:(model, data)=>{
+        return new Promise((resolve, reject)=>{
+            let newData = new model(data);
+            newData.save();
+            resolve();
+        })
     }
+
 }
