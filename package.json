@@ -1,7 +1,7 @@
 {
   "name": "mongoi",
   "version": "1.0.0",
-  "description": "api for mongo ",
+  "description": "Simplying mongo db",
   "main": "index.js",
   "bin": "index.js",
   "scripts": {
@@ -10,7 +10,6 @@
   "author": "Fadhil Saheer",
   "license": "MIT",
   "dependencies": {
-    "bcrypt": "^5.0.0",
     "mongoose": "^5.11.8"
   },
   "repository": {
