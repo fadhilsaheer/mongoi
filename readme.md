@@ -46,7 +46,7 @@ const mongoi = require('mongoi')
 you have initialize it first
 
 ```javascript
-let yourDatabaseConnectionUrl = "mongdb:localhost:27017"
+let yourDatabaseConnectionUrl = "mongodb://localhost:27017/[you-db-name]"
 
 // create database schema as you do for mongoose
 let databaseSchema = {
@@ -105,7 +105,7 @@ const data_to_save = {
     color: "red"
 }
 
-mongoi.crud("s". data_to_save) // you can call .then after this 🥱
+mongoi.crud("s", data_to_save) // you can call .then after this 🥱
 ```
 
 #### Read
