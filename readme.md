@@ -221,6 +221,6 @@ contribute for updating this garbage 😁
 
 <center>
     <p>
-        Made With 💗 <a href="https://fadhilsaheer.github.io/">Fadhil</a>
+        👨‍💻 With 💗 <a href="https://fadhilsaheer.github.io/">Fadhil</a>
     </p>
 </center>
